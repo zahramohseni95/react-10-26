@@ -1,5 +1,5 @@
 import { Layout, Menu } from "antd";
-import { Navigate, Route, Routes } from "react-router";
+import { Navigate, Route, Routes, useNavigate } from "react-router";
 import "./App.css";
 import Submenu1 from "./page/Submenu1";
 import Submenu2 from "./page/Submenu2";
@@ -21,17 +21,19 @@ const items = [
   },
 ];
 function App() {
+  const Navigate=useNavigate();
   function handleClickItem(e) {
     const { key } = e;
+    console.log(key)
     switch (key) {
       case "sub1":
-        <Navigate to="/Submenu1" />;
+        Navigate("/Submenu1") 
         break;
       case "sub2":
-        <Navigate to="/Submenu2" />;
+        Navigate("/Submenu2") 
         break;
       case "sub3":
-        <Navigate to="/Submenu3" />;
+        Navigate("/Submenu3") 
         break;
 
       default:
